@@ -1,0 +1,88 @@
+Kod Android Studio, który pokazuje przycisk w zmienionym kolorze na Cyjan, którego jak się kliknie to pokaże się dymek "toast". 
+Zakomentowane linijki znakiem "//" pochodzą z kodu, który wyświetla się po otwarciu aplikacji. 
+Wykonała Jolanta M 268549 na zajęciach 14.11.2023 15.45-18.00
+
+Kod z MainActivity.kt:
+
+package com.example.a268549_button
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.a268549_button.ui.theme._268549_buttonTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+
+            //_268549_buttonTheme {
+            // A surface container using the 'background' color from the theme
+            // Surface(
+            // modifier = Modifier.fillMaxSize(),
+            // color = MaterialTheme.colorScheme.background
+            // )
+            // }
+            // }
+            Column(
+                verticalArrangement = Arrangement.SpaceEvenly,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxSize()
+            )
+            {
+                Button1()
+            }
+        }
+    }
+    }
+
+
+
+
+        @Composable
+        fun Button1() {
+            val context = LocalContext.current
+            Button(onClick = {
+                Toast.makeText(context, "Clicked on Button", Toast.LENGTH_SHORT).show()
+            }, colors = ButtonDefaults.buttonColors(Color.Cyan)
+            ){
+                Text(text = "Click")
+            }
+        }
+
+
+        //Greeting(name: String, modifier: Modifier = Modifier) {
+    //Text(
+      //  text = "Hello $name!",
+      //  modifier = modifier
+  //  )
+//}
+
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+   // _268549_buttonTheme {
+     //   Greeting("Android")
+  //  }
+//}
+
+Do gradla dołożone dwie linijki:
+buildFeatures {
+        compose = true
+    }
